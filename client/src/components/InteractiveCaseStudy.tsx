@@ -33,7 +33,9 @@ export function InteractiveCaseStudy({
   data,
   onComplete,
 }: InteractiveCaseStudyProps) {
-  const [currentStep, setCurrentStep] = useState(0);
+  // Find the minimum step number to set as initial state
+  const minStep = Math.min(...data.map(d => d.stepNumber));
+  const [currentStep, setCurrentStep] = useState(minStep);
 
   // Group data by step number to create chart data
   const getChartData = (stepNum: number) => {
@@ -45,10 +47,11 @@ export function InteractiveCaseStudy({
       }));
   };
 
-  const currentStepData = data.find(d => d.stepNumber === currentStep);
   const uniqueSteps = Array.from(new Set(data.map(d => d.stepNumber))).sort((a, b) => a - b);
   const maxStep = Math.max(...uniqueSteps);
-  const minStep = Math.min(...uniqueSteps);
+
+  // Get the current step's data (including title and description)
+  const currentStepData = data.find(d => d.stepNumber === currentStep && d.title && d.description);
 
   const goToNextStep = () => {
     if (currentStep < maxStep) {
@@ -103,7 +106,7 @@ export function InteractiveCaseStudy({
             {chartData.length > 0 && (
               <div className="h-[300px] mt-6">
                 <ResponsiveContainer width="100%" height="100%">
-                  <AreaChart data={chartData}>
+                  <AreaChart data={chartData} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="name" />
                     <YAxis />

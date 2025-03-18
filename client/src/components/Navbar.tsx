@@ -9,7 +9,7 @@ export default function Navbar() {
         <div className="flex h-16 items-center justify-between">
           <Link href="/">
             <div className="text-2xl font-bold bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent cursor-pointer">
-              DataViz Analytics
+              Prime Data Works
             </div>
           </Link>
 

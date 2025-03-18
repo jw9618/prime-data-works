@@ -14,7 +14,7 @@ export default function Hero() {
               </span>
             </h1>
             <p className="text-lg text-muted-foreground mb-8">
-              We help businesses make data-driven decisions through advanced analytics,
+              Prime Data Works helps businesses make data-driven decisions through advanced analytics,
               visualization, and strategic insights. Unlock the power of your data with
               our expert team.
             </p>

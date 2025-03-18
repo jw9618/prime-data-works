@@ -46,10 +46,12 @@ export function InteractiveCaseStudy({
   };
 
   const currentStepData = data.find(d => d.stepNumber === currentStep);
-  const uniqueSteps = [...new Set(data.map(d => d.stepNumber))];
+  const uniqueSteps = Array.from(new Set(data.map(d => d.stepNumber))).sort((a, b) => a - b);
+  const maxStep = Math.max(...uniqueSteps);
+  const minStep = Math.min(...uniqueSteps);
 
   const goToNextStep = () => {
-    if (currentStep < Math.max(...uniqueSteps)) {
+    if (currentStep < maxStep) {
       setCurrentStep(currentStep + 1);
     } else if (onComplete) {
       onComplete();
@@ -57,7 +59,7 @@ export function InteractiveCaseStudy({
   };
 
   const goToPreviousStep = () => {
-    if (currentStep > Math.min(...uniqueSteps)) {
+    if (currentStep > minStep) {
       setCurrentStep(currentStep - 1);
     }
   };
@@ -124,13 +126,13 @@ export function InteractiveCaseStudy({
           <Button
             variant="outline"
             onClick={goToPreviousStep}
-            disabled={currentStep === Math.min(...uniqueSteps)}
+            disabled={currentStep === minStep}
           >
             <ChevronLeft className="h-4 w-4 mr-2" />
             Previous
           </Button>
           <Button onClick={goToNextStep}>
-            {currentStep === Math.max(...uniqueSteps) ? (
+            {currentStep === maxStep ? (
               "Finish"
             ) : (
               <>

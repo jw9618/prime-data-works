@@ -1,0 +1,18 @@
+# ----------------------------------------
+# Traffic acquisition: Session primary channel group (Default Channel Group)
+# Account: Harvest River Financial Corporation
+# Property: GA4 Harvest River Financial Corporation - GA4
+# ----------------------------------------
+# 
+# All Users
+# Start date: 20220501
+# End date: 20221231
+Session primary channel group (Default Channel Group),Sessions,Engaged sessions,Engagement rate,Average engagement time per session,Events per session,Event count,Key events,Session key event rate,Total revenue
+Direct,117,108,0.9230769230769231,50.401709401709404,7.418803418803419,868,425,0.7350427350427351,0
+Referral,44,40,0.9090909090909091,62.11363636363637,25.795454545454547,1135,770,0.8863636363636364,0
+Organic Social,42,38,0.9047619047619048,5.738095238095238,4.642857142857143,195,121,0.9047619047619048,0
+Organic Search,27,24,0.8888888888888888,90.22222222222223,9.481481481481481,256,148,0.8888888888888888,0
+Email,16,13,0.8125,97.75,13.75,220,135,0.8125,0
+Unassigned,14,10,0.7142857142857143,226.28571428571428,8.928571428571429,125,70,0.7857142857142857,0
+Paid Social,4,4,1,21,5,20,12,1,0
+Paid Search,1,1,1,0,7,7,5,1,0

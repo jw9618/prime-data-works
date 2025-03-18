@@ -5,78 +5,86 @@ import { Link } from "wouter";
 import { InteractiveCaseStudy } from "@/components/InteractiveCaseStudy";
 import { X } from "lucide-react";
 
-// Example case study data in the new format
 const caseStudies = [
   {
     id: 1,
-    title: "E-commerce Analytics Transformation",
-    description: "How we helped an online retailer increase conversion rates by 45% through advanced GA4 implementation",
-    image: "https://images.unsplash.com/photo-1542744173-05336fcc7ad4",
-    metrics: ["45% increase in conversions", "2.5x ROI improvement", "60% better user engagement"],
+    title: "Harvest River Financial Corporation - Traffic Analysis",
+    description: "How we optimized digital channels to improve engagement and session quality across multiple traffic sources",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71",
+    metrics: [
+      "92.3% engagement rate on direct traffic",
+      "88.9% engagement rate on organic search",
+      "97.8 seconds average engagement time"
+    ],
     data: [
       {
         stepNumber: 1,
-        title: "Initial Analysis",
-        description: "Our team conducted a comprehensive audit of the existing analytics setup, identifying major gaps in tracking and reporting.",
-        metricName: "Monthly Visitors",
-        metricValue: 1000,
-        date: "Jan 2024"
+        title: "Direct Traffic Performance",
+        description: "Analysis of direct traffic showing strong engagement metrics and high session quality.",
+        metricName: "Direct Traffic Sessions",
+        metricValue: 117,
+        date: "Direct"
       },
       {
         stepNumber: 1,
-        metricValue: 1200,
-        date: "Feb 2024"
+        metricValue: 44,
+        date: "Referral"
       },
       {
         stepNumber: 1,
-        metricValue: 1100,
-        date: "Mar 2024"
+        metricValue: 42,
+        date: "Organic Social"
+      },
+      {
+        stepNumber: 1,
+        metricValue: 27,
+        date: "Organic Search"
       },
       {
         stepNumber: 2,
-        title: "GA4 Implementation",
-        description: "We implemented enhanced e-commerce tracking and custom event tracking to capture key user interactions.",
-        metricName: "Conversion Rate",
-        metricValue: 2.1,
-        date: "Week 1"
+        title: "Engagement Rate Analysis",
+        description: "Comparison of engagement rates across different channels, showing strong performance in paid channels.",
+        metricName: "Engagement Rate (%)",
+        metricValue: 92.3,
+        date: "Direct"
       },
       {
         stepNumber: 2,
-        metricValue: 2.3,
-        date: "Week 2"
+        metricValue: 90.9,
+        date: "Referral"
       },
       {
         stepNumber: 2,
-        metricValue: 2.8,
-        date: "Week 3"
+        metricValue: 90.4,
+        date: "Organic Social"
       },
       {
         stepNumber: 2,
-        metricValue: 3.2,
-        date: "Week 4"
+        metricValue: 88.9,
+        date: "Organic Search"
       },
       {
         stepNumber: 3,
-        title: "Optimization Phase",
-        description: "Based on the collected data, we optimized the checkout process and product recommendations.",
-        metricName: "Revenue",
-        metricValue: 100000,
-        date: "Q1 2024"
+        title: "Events Per Session",
+        description: "Analysis of user interaction depth across channels, with referral traffic showing highest engagement.",
+        metricName: "Events per Session",
+        metricValue: 7.4,
+        date: "Direct"
       },
       {
         stepNumber: 3,
-        metricValue: 150000,
-        date: "Q2 2024"
+        metricValue: 25.8,
+        date: "Referral"
       },
       {
         stepNumber: 3,
-        metricValue: 220000,
-        date: "Q3 2024"
+        metricValue: 4.6,
+        date: "Organic Social"
       },
       {
         stepNumber: 3,
-        metricValue: 280000,
-        date: "Q4 2024"
+        metricValue: 9.5,
+        date: "Organic Search"
       }
     ]
   }

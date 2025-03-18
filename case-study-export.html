@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harvest River Financial Corporation - Traffic Analysis</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            line-height: 1.5;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f8f9fa;
+        }
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        .metric {
+            background: #f1f5f9;
+            padding: 16px;
+            border-radius: 6px;
+        }
+        .chart-container {
+            height: 400px;
+            margin: 24px 0;
+        }
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 24px;
+        }
+        button {
+            background: #1a56db;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:disabled {
+            background: #9ca3af;
+            cursor: not-allowed;
+        }
+        .progress {
+            display: flex;
+            gap: 8px;
+            margin: 24px 0;
+        }
+        .progress-step {
+            flex: 1;
+            height: 4px;
+            background: #e5e7eb;
+            border-radius: 2px;
+        }
+        .progress-step.active {
+            background: #1a56db;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Harvest River Financial Corporation - Traffic Analysis</h1>
+        <p>How we optimized digital channels to improve engagement and session quality across multiple traffic sources</p>
+        
+        <div class="metrics">
+            <div class="metric">92.3% engagement rate on direct traffic</div>
+            <div class="metric">88.9% engagement rate on organic search</div>
+            <div class="metric">97.8 seconds average engagement time</div>
+        </div>
+
+        <div class="progress">
+            <div class="progress-step active"></div>
+            <div class="progress-step"></div>
+            <div class="progress-step"></div>
+        </div>
+
+        <div id="stepContent">
+            <h2 id="stepTitle"></h2>
+            <p id="stepDescription"></p>
+        </div>
+
+        <div class="chart-container">
+            <canvas id="chart"></canvas>
+        </div>
+
+        <div class="navigation">
+            <button id="prevBtn" onclick="previousStep()">Previous</button>
+            <button id="nextBtn" onclick="nextStep()">Next</button>
+        </div>
+    </div>
+
+    <script>
+        const caseStudyData = {
+            steps: [
+                {
+                    title: "Traffic Distribution Analysis",
+                    description: "A comprehensive breakdown of session sources, showing strong direct traffic performance indicating brand recognition.",
+                    data: [
+                        { name: "Direct", value: 117 },
+                        { name: "Referral", value: 44 },
+                        { name: "Organic Social", value: 42 },
+                        { name: "Organic Search", value: 27 }
+                    ],
+                    chartType: 'bar'
+                },
+                {
+                    title: "Channel Engagement Performance",
+                    description: "Exceptional engagement rates across all channels, with paid channels showing 100% engagement.",
+                    data: [
+                        { name: "Direct", value: 92.3 },
+                        { name: "Referral", value: 90.9 },
+                        { name: "Organic Social", value: 90.4 },
+                        { name: "Organic Search", value: 88.9 }
+                    ],
+                    chartType: 'line'
+                },
+                {
+                    title: "User Interaction Depth",
+                    description: "Analysis of event frequency per session, highlighting strong user engagement particularly in referral traffic.",
+                    data: [
+                        { name: "Referral", value: 25.8 },
+                        { name: "Email", value: 13.8 },
+                        { name: "Organic Search", value: 9.5 },
+                        { name: "Direct", value: 7.4 }
+                    ],
+                    chartType: 'bar'
+                }
+            ]
+        };
+
+        let currentStep = 0;
+        let chart = null;
+
+        function updateStep() {
+            const step = caseStudyData.steps[currentStep];
+            document.getElementById('stepTitle').textContent = step.title;
+            document.getElementById('stepDescription').textContent = step.description;
+            
+            document.querySelectorAll('.progress-step').forEach((el, i) => {
+                el.classList.toggle('active', i <= currentStep);
+            });
+
+            document.getElementById('prevBtn').disabled = currentStep === 0;
+            document.getElementById('nextBtn').disabled = currentStep === caseStudyData.steps.length - 1;
+
+            updateChart(step);
+        }
+
+        function updateChart(step) {
+            if (chart) {
+                chart.destroy();
+            }
+
+            const ctx = document.getElementById('chart').getContext('2d');
+            const chartConfig = {
+                type: step.chartType,
+                data: {
+                    labels: step.data.map(d => d.name),
+                    datasets: [{
+                        label: step.title,
+                        data: step.data.map(d => d.value),
+                        backgroundColor: 'rgba(37, 99, 235, 0.2)',
+                        borderColor: 'rgb(37, 99, 235)',
+                        borderWidth: 2,
+                        tension: 0.1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            };
+
+            chart = new Chart(ctx, chartConfig);
+        }
+
+        function nextStep() {
+            if (currentStep < caseStudyData.steps.length - 1) {
+                currentStep++;
+                updateStep();
+            }
+        }
+
+        function previousStep() {
+            if (currentStep > 0) {
+                currentStep--;
+                updateStep();
+            }
+        }
+
+        // Initialize the first step
+        updateStep();
+    </script>
+</body>
+</html>

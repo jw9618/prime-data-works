@@ -1,4 +1,5 @@
 import { Link, useLocation } from "wouter";
+import { ThemeSelector } from "./ThemeSelector";
 
 export default function Navbar() {
   const [location] = useLocation();
@@ -13,7 +14,7 @@ export default function Navbar() {
             </div>
           </Link>
 
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex items-center space-x-8">
             <Link href="/">
               <div className={`hover:text-primary transition-colors cursor-pointer ${location === "/" ? "text-primary" : ""}`}>
                 Home
@@ -34,6 +35,7 @@ export default function Navbar() {
                 Contact
               </div>
             </Link>
+            <ThemeSelector />
           </div>
         </div>
       </div>

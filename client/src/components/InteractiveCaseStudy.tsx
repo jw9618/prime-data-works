@@ -5,6 +5,10 @@ import { Button } from "@/components/ui/button";
 import {
   AreaChart,
   Area,
+  BarChart,
+  Bar,
+  LineChart,
+  Line,
   XAxis,
   YAxis,
   CartesianGrid,
@@ -17,9 +21,9 @@ interface CaseStudyData {
   stepNumber: number;
   title: string;
   description: string;
-  metricName?: string;
-  metricValue?: number;
-  date?: string;
+  metricName: string;
+  metricValue: number;
+  date: string;
 }
 
 interface InteractiveCaseStudyProps {
@@ -71,6 +75,56 @@ export function InteractiveCaseStudy({
 
   const chartData = getChartData(currentStep);
 
+  // Choose chart type based on step number
+  const renderChart = () => {
+    switch (currentStep) {
+      case 1:
+        return (
+          <BarChart data={chartData} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="name" />
+            <YAxis />
+            <Tooltip />
+            <Bar dataKey="value" fill="hsl(var(--primary))" />
+          </BarChart>
+        );
+      case 2:
+        return (
+          <LineChart data={chartData} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="name" />
+            <YAxis />
+            <Tooltip />
+            <Line 
+              type="monotone" 
+              dataKey="value" 
+              stroke="hsl(var(--primary))" 
+              strokeWidth={2}
+              dot={{ fill: "hsl(var(--primary))" }}
+            />
+          </LineChart>
+        );
+      case 3:
+        return (
+          <AreaChart data={chartData} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="name" />
+            <YAxis />
+            <Tooltip />
+            <Area
+              type="monotone"
+              dataKey="value"
+              stroke="hsl(var(--primary))"
+              fill="hsl(var(--primary))"
+              fillOpacity={0.2}
+            />
+          </AreaChart>
+        );
+      default:
+        return null;
+    }
+  };
+
   return (
     <Card className="w-full max-w-4xl mx-auto">
       <CardContent className="p-6">
@@ -106,19 +160,7 @@ export function InteractiveCaseStudy({
             {chartData.length > 0 && (
               <div className="h-[300px] mt-6">
                 <ResponsiveContainer width="100%" height="100%">
-                  <AreaChart data={chartData} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
-                    <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="name" />
-                    <YAxis />
-                    <Tooltip />
-                    <Area
-                      type="monotone"
-                      dataKey="value"
-                      stroke="hsl(var(--primary))"
-                      fill="hsl(var(--primary))"
-                      fillOpacity={0.2}
-                    />
-                  </AreaChart>
+                  {renderChart()}
                 </ResponsiveContainer>
               </div>
             )}

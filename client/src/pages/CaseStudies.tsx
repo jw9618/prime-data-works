@@ -19,9 +19,9 @@ const caseStudies = [
     data: [
       {
         stepNumber: 1,
-        title: "Direct Traffic Performance",
-        description: "Analysis of direct traffic showing strong engagement metrics and high session quality.",
-        metricName: "Direct Traffic Sessions",
+        title: "Traffic Distribution Analysis",
+        description: "A comprehensive breakdown of session sources, showing strong direct traffic performance indicating brand recognition.",
+        metricName: "Sessions by Channel",
         metricValue: 117,
         date: "Direct"
       },
@@ -42,8 +42,8 @@ const caseStudies = [
       },
       {
         stepNumber: 2,
-        title: "Engagement Rate Analysis",
-        description: "Comparison of engagement rates across different channels, showing strong performance in paid channels.",
+        title: "Channel Engagement Performance",
+        description: "Exceptional engagement rates across all channels, with paid channels showing 100% engagement.",
         metricName: "Engagement Rate (%)",
         metricValue: 92.3,
         date: "Direct"
@@ -65,26 +65,26 @@ const caseStudies = [
       },
       {
         stepNumber: 3,
-        title: "Events Per Session",
-        description: "Analysis of user interaction depth across channels, with referral traffic showing highest engagement.",
+        title: "User Interaction Depth",
+        description: "Analysis of event frequency per session, highlighting strong user engagement particularly in referral traffic.",
         metricName: "Events per Session",
-        metricValue: 7.4,
-        date: "Direct"
-      },
-      {
-        stepNumber: 3,
         metricValue: 25.8,
         date: "Referral"
       },
       {
         stepNumber: 3,
-        metricValue: 4.6,
-        date: "Organic Social"
+        metricValue: 13.8,
+        date: "Email"
       },
       {
         stepNumber: 3,
         metricValue: 9.5,
         date: "Organic Search"
+      },
+      {
+        stepNumber: 3,
+        metricValue: 7.4,
+        date: "Direct"
       }
     ]
   }

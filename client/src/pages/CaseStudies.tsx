@@ -5,57 +5,81 @@ import { Link } from "wouter";
 import { InteractiveCaseStudy } from "@/components/InteractiveCaseStudy";
 import { X } from "lucide-react";
 
+// Example case study data in the new format
 const caseStudies = [
   {
+    id: 1,
     title: "E-commerce Analytics Transformation",
     description: "How we helped an online retailer increase conversion rates by 45% through advanced GA4 implementation",
     image: "https://images.unsplash.com/photo-1542744173-05336fcc7ad4",
     metrics: ["45% increase in conversions", "2.5x ROI improvement", "60% better user engagement"],
-    interactiveSteps: [
+    data: [
       {
+        stepNumber: 1,
         title: "Initial Analysis",
         description: "Our team conducted a comprehensive audit of the existing analytics setup, identifying major gaps in tracking and reporting.",
-        chart: {
-          data: [
-            { name: "Jan", value: 1000 },
-            { name: "Feb", value: 1200 },
-            { name: "Mar", value: 1100 },
-          ],
-          dataKey: "value",
-          label: "Monthly Visitors",
-        },
+        metricName: "Monthly Visitors",
+        metricValue: 1000,
+        date: "Jan 2024"
       },
       {
+        stepNumber: 1,
+        metricValue: 1200,
+        date: "Feb 2024"
+      },
+      {
+        stepNumber: 1,
+        metricValue: 1100,
+        date: "Mar 2024"
+      },
+      {
+        stepNumber: 2,
         title: "GA4 Implementation",
         description: "We implemented enhanced e-commerce tracking and custom event tracking to capture key user interactions.",
-        chart: {
-          data: [
-            { name: "Week 1", value: 2.1 },
-            { name: "Week 2", value: 2.3 },
-            { name: "Week 3", value: 2.8 },
-            { name: "Week 4", value: 3.2 },
-          ],
-          dataKey: "value",
-          label: "Conversion Rate (%)",
-        },
+        metricName: "Conversion Rate",
+        metricValue: 2.1,
+        date: "Week 1"
       },
       {
+        stepNumber: 2,
+        metricValue: 2.3,
+        date: "Week 2"
+      },
+      {
+        stepNumber: 2,
+        metricValue: 2.8,
+        date: "Week 3"
+      },
+      {
+        stepNumber: 2,
+        metricValue: 3.2,
+        date: "Week 4"
+      },
+      {
+        stepNumber: 3,
         title: "Optimization Phase",
         description: "Based on the collected data, we optimized the checkout process and product recommendations.",
-        chart: {
-          data: [
-            { name: "Q1", value: 100000 },
-            { name: "Q2", value: 150000 },
-            { name: "Q3", value: 220000 },
-            { name: "Q4", value: 280000 },
-          ],
-          dataKey: "value",
-          label: "Revenue ($)",
-        },
+        metricName: "Revenue",
+        metricValue: 100000,
+        date: "Q1 2024"
       },
-    ],
-  },
-  // Add more case studies here...
+      {
+        stepNumber: 3,
+        metricValue: 150000,
+        date: "Q2 2024"
+      },
+      {
+        stepNumber: 3,
+        metricValue: 220000,
+        date: "Q3 2024"
+      },
+      {
+        stepNumber: 3,
+        metricValue: 280000,
+        date: "Q4 2024"
+      }
+    ]
+  }
 ];
 
 export default function CaseStudies() {
@@ -83,14 +107,14 @@ export default function CaseStudies() {
               </Button>
               <InteractiveCaseStudy
                 title={caseStudies[selectedCase].title}
-                steps={caseStudies[selectedCase].interactiveSteps}
+                data={caseStudies[selectedCase].data}
                 onComplete={() => setSelectedCase(null)}
               />
             </div>
           ) : (
             <div className="grid lg:grid-cols-2 gap-8">
               {caseStudies.map((study, index) => (
-                <Card key={study.title} className="overflow-hidden">
+                <Card key={study.id} className="overflow-hidden">
                   <img
                     src={study.image}
                     alt={study.title}

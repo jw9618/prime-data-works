@@ -13,31 +13,43 @@ import {
 } from "recharts";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-interface CaseStudyStep {
+interface CaseStudyData {
+  stepNumber: number;
   title: string;
   description: string;
-  chart?: {
-    data: any[];
-    dataKey: string;
-    label: string;
-  };
+  metricName?: string;
+  metricValue?: number;
+  date?: string;
 }
 
 interface InteractiveCaseStudyProps {
   title: string;
-  steps: CaseStudyStep[];
+  data: CaseStudyData[];
   onComplete?: () => void;
 }
 
 export function InteractiveCaseStudy({
   title,
-  steps,
+  data,
   onComplete,
 }: InteractiveCaseStudyProps) {
   const [currentStep, setCurrentStep] = useState(0);
 
+  // Group data by step number to create chart data
+  const getChartData = (stepNum: number) => {
+    return data
+      .filter(item => item.stepNumber === stepNum && item.metricValue !== undefined)
+      .map(item => ({
+        name: item.date || '',
+        value: item.metricValue || 0
+      }));
+  };
+
+  const currentStepData = data.find(d => d.stepNumber === currentStep);
+  const uniqueSteps = [...new Set(data.map(d => d.stepNumber))];
+
   const goToNextStep = () => {
-    if (currentStep < steps.length - 1) {
+    if (currentStep < Math.max(...uniqueSteps)) {
       setCurrentStep(currentStep + 1);
     } else if (onComplete) {
       onComplete();
@@ -45,23 +57,27 @@ export function InteractiveCaseStudy({
   };
 
   const goToPreviousStep = () => {
-    if (currentStep > 0) {
+    if (currentStep > Math.min(...uniqueSteps)) {
       setCurrentStep(currentStep - 1);
     }
   };
+
+  if (!currentStepData) return null;
+
+  const chartData = getChartData(currentStep);
 
   return (
     <Card className="w-full max-w-4xl mx-auto">
       <CardContent className="p-6">
         <h2 className="text-2xl font-bold mb-6">{title}</h2>
-        
+
         {/* Progress indicator */}
         <div className="flex gap-2 mb-6">
-          {steps.map((_, index) => (
+          {uniqueSteps.map((step) => (
             <div
-              key={index}
+              key={step}
               className={`h-1.5 flex-1 rounded-full transition-colors ${
-                index <= currentStep ? "bg-primary" : "bg-gray-200"
+                step <= currentStep ? "bg-primary" : "bg-gray-200"
               }`}
             />
           ))}
@@ -76,23 +92,23 @@ export function InteractiveCaseStudy({
             className="space-y-6"
           >
             <h3 className="text-xl font-semibold">
-              {steps[currentStep].title}
+              {currentStepData.title}
             </h3>
             <p className="text-muted-foreground">
-              {steps[currentStep].description}
+              {currentStepData.description}
             </p>
 
-            {steps[currentStep].chart && (
+            {chartData.length > 0 && (
               <div className="h-[300px] mt-6">
                 <ResponsiveContainer width="100%" height="100%">
-                  <AreaChart data={steps[currentStep].chart.data}>
+                  <AreaChart data={chartData}>
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="name" />
                     <YAxis />
                     <Tooltip />
                     <Area
                       type="monotone"
-                      dataKey={steps[currentStep].chart.dataKey}
+                      dataKey="value"
                       stroke="hsl(var(--primary))"
                       fill="hsl(var(--primary))"
                       fillOpacity={0.2}
@@ -108,13 +124,13 @@ export function InteractiveCaseStudy({
           <Button
             variant="outline"
             onClick={goToPreviousStep}
-            disabled={currentStep === 0}
+            disabled={currentStep === Math.min(...uniqueSteps)}
           >
             <ChevronLeft className="h-4 w-4 mr-2" />
             Previous
           </Button>
           <Button onClick={goToNextStep}>
-            {currentStep === steps.length - 1 ? (
+            {currentStep === Math.max(...uniqueSteps) ? (
               "Finish"
             ) : (
               <>

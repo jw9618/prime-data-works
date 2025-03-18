@@ -28,7 +28,26 @@ export default function Home() {
   return (
     <main>
       <Hero />
-      
+
+      {/* Special Offer Section */}
+      <section className="py-8 bg-primary/5">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-2xl font-bold mb-4">
+              Special Offer: Comprehensive Data Audit
+            </h2>
+            <p className="text-lg text-muted-foreground mb-6">
+              Get a thorough assessment of your data infrastructure, analytics setup, and optimization opportunities for just $100
+            </p>
+            <Link href="/contact">
+              <Button size="lg" variant="default">
+                Book Your Audit Now
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <section className="py-16">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12">
@@ -49,7 +68,7 @@ export default function Home() {
       </section>
 
       <Analytics />
-      
+
       <section className="py-16 bg-primary/5">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">

@@ -57,34 +57,55 @@ function prime_data_works_widgets_init() {
 }
 add_action('widgets_init', 'prime_data_works_widgets_init');
 
-// Custom Chart Shortcode
+// Enhanced Chart Shortcode with Responsive Support
 function prime_data_works_chart_shortcode($atts) {
     $atts = shortcode_atts(array(
         'type' => 'line',
         'data' => '',
         'labels' => '',
         'title' => '',
+        'height' => '300',
+        'width' => '100%',
+        'colors' => '#0f172a,#2563eb,#3b82f6',
+        'legend' => 'true'
     ), $atts);
 
     $chart_id = 'chart-' . uniqid();
+    $colors_array = explode(',', $atts['colors']);
 
     ob_start();
     ?>
-    <div class="chart-container">
+    <div class="chart-wrapper" style="position: relative; height: <?php echo esc_attr($atts['height']); ?>px; width: <?php echo esc_attr($atts['width']); ?>;">
         <canvas id="<?php echo esc_attr($chart_id); ?>"></canvas>
     </div>
     <script>
     jQuery(document).ready(function($) {
-        new Chart(document.getElementById('<?php echo esc_js($chart_id); ?>'), {
+        const ctx = document.getElementById('<?php echo esc_js($chart_id); ?>');
+        new Chart(ctx, {
             type: '<?php echo esc_js($atts['type']); ?>',
             data: {
                 labels: <?php echo $atts['labels']; ?>,
                 datasets: [{
                     label: '<?php echo esc_js($atts['title']); ?>',
                     data: <?php echo $atts['data']; ?>,
-                    borderColor: '#0f172a',
+                    backgroundColor: '<?php echo esc_js($colors_array[0]); ?>',
+                    borderColor: '<?php echo esc_js($colors_array[1]); ?>',
                     tension: 0.1
                 }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: <?php echo esc_js($atts['legend']); ?>
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
             }
         });
     });
@@ -93,6 +114,13 @@ function prime_data_works_chart_shortcode($atts) {
     return ob_get_clean();
 }
 add_shortcode('data_chart', 'prime_data_works_chart_shortcode');
+
+// Add example function to demonstrate chart usage
+function prime_data_works_chart_example() {
+    $labels = '["Jan", "Feb", "Mar", "Apr", "May", "Jun"]';
+    $data = '[10, 25, 45, 30, 60, 80]';
+    return do_shortcode('[data_chart type="line" title="Monthly Growth" data="' . $data . '" labels="' . $labels . '" height="400" colors="#0f172a,#2563eb,#3b82f6"]');
+}
 
 // Add custom theme options
 function prime_data_works_customize_register($wp_customize) {

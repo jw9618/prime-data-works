@@ -1,0 +1,49 @@
+# Essential Plugins Installation Guide
+
+## Required Free Plugins
+1. Elementor (Free Version)
+   - Go to WordPress Admin > Plugins > Add New
+   - Search for "Elementor"
+   - Click "Install Now" on "Elementor Website Builder"
+   - After installation, click "Activate"
+
+2. Font Awesome Integration
+   - Go to Plugins > Add New
+   - Search for "Font Awesome Official"
+   - Install and activate the plugin
+   - Go to Settings > Font Awesome to configure
+
+3. Contact Form 7 (for contact forms)
+   - Go to Plugins > Add New
+   - Search for "Contact Form 7"
+   - Install and activate
+   - Access via Contact > Contact Forms
+
+4. Simple Custom CSS and JS (for animations)
+   - Go to Plugins > Add New
+   - Search for "Simple Custom CSS and JS"
+   - Install and activate
+   - Access via Custom CSS & JS in sidebar
+
+## Optional but Recommended
+1. Responsive Charts
+   - Go to Plugins > Add New
+   - Search for "Responsive Charts"
+   - Install and activate
+   - Use shortcodes in Elementor text widgets
+
+## After Installation
+1. Go to Elementor > Settings
+   - Enable "CSS Print Method" as "External File"
+   - Save changes
+
+2. Test Elementor Editor
+   - Create a new page
+   - Click "Edit with Elementor"
+   - Verify all widgets are available
+
+## Troubleshooting
+If any plugin doesn't appear:
+1. Try refreshing the plugins page
+2. Go to Settings > Permalinks and click "Save Changes"
+3. Clear your browser cache

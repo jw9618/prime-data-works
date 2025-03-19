@@ -41,34 +41,6 @@ if (have_rows('analytics_tools')):
     <?php
 endif;
 
-// Team Section
-if (have_rows('team_members')):
-    ?>
-    <section class="team bg-gray-50">
-        <div class="container">
-            <h2 class="section-title">Our Expert Team</h2>
-            <div class="team-grid">
-                <?php
-                while (have_rows('team_members')): the_row();
-                    ?>
-                    <div class="team-card">
-                        <?php if (get_sub_field('member_image')): ?>
-                            <img src="<?php echo esc_url(get_sub_field('member_image')); ?>" 
-                                 alt="<?php echo esc_attr(get_sub_field('member_name')); ?>"
-                                 class="member-image">
-                        <?php endif; ?>
-                        <h3 class="member-name"><?php echo esc_html(get_sub_field('member_name')); ?></h3>
-                        <p class="member-role"><?php echo esc_html(get_sub_field('member_role')); ?></p>
-                    </div>
-                    <?php
-                endwhile;
-                ?>
-            </div>
-        </div>
-    </section>
-    <?php
-endif;
-
 // Final CTA
 ?>
 <section class="cta bg-primary-light">

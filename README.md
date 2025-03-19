@@ -1,45 +1,50 @@
-# Prime Data Works - Analytics Portfolio Website
+# Prime Data Works - WordPress Theme
 
-A modern, interactive data analytics portfolio website showcasing advanced business intelligence solutions through dynamic visualizations and comprehensive analytics services.
+A modern WordPress theme for data analytics and business intelligence companies.
 
 ## Features
 
-- 📊 Interactive Case Studies with GA4 Data Visualization
-- 🎨 Customizable Dashboard Color Themes
 - 📱 Responsive Design
-- 📈 Advanced Data Visualization using Recharts
-- 🔄 Real-time Theme Switching
-- 📝 Contact Form with Validation
+- 🎨 Modern and Clean Interface
+- 📊 Built-in Case Studies Support
+- 🔄 Dynamic Home Page Sections
+- 🎯 Optimized for Analytics Businesses
 
-## Tech Stack
+## Download
 
-- React.js with TypeScript
-- TailwindCSS + ShadcnUI
-- Recharts for Data Visualization
-- React Query for Data Management
-- React Hook Form for Form Handling
-- Express.js Backend
-- Zod for Validation
+You can download the theme in two ways:
 
-## Getting Started
+1. Direct Download: [Download Theme ZIP](https://github.com/jw9618/prime-data-works/releases/latest/download/wordpress-theme.zip)
+2. Latest Release: Visit our [Releases page](https://github.com/jw9618/prime-data-works/releases) for the latest version
 
-1. Clone the repository
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Start the development server:
-   ```bash
-   npm run dev
-   ```
+## Installation
 
-## Environment Variables
+1. Log in to your WordPress admin panel
+2. Go to Appearance > Themes
+3. Click "Add New"
+4. Click "Upload Theme"
+5. Choose the downloaded zip file
+6. Click "Install Now"
+7. After installation, click "Activate"
 
-The following environment variables are required:
+## Required Plugins
 
-- `DATABASE_URL` - PostgreSQL database connection string
-- `GA_TRACKING_ID` - Google Analytics 4 tracking ID
+- Advanced Custom Fields (ACF) - for custom fields and flexible content
+- Classic Editor - recommended for best compatibility
+
+## Customization
+
+The theme includes several customization options:
+
+- Custom logo support
+- Primary color selection
+- Multiple page templates
+- Customizable sections for the home page
+
+## Support
+
+For support or feature requests, please [open an issue](https://github.com/jw9618/prime-data-works/issues) on our GitHub repository.
 
 ## License
 
-MIT
+This theme is licensed under the MIT License - see the LICENSE file for details.

@@ -4,11 +4,7 @@ if (!defined('ABSPATH')) exit;
 add_action('after_setup_theme', function() {
     // Add Elementor support
     add_theme_support('elementor');
-
-    // Add support for Elementor Pro features if needed
     add_theme_support('elementor-pro');
-
-    // Add support for full-width template
     add_theme_support('elementor-default-templates');
 });
 

@@ -1,0 +1,40 @@
+# Elementor Implementation Guide for Prime Data Works
+
+## Setup Instructions
+
+### 1. Install Required Free Plugins
+1. Elementor Website Builder (Free)
+   - Go to WordPress Admin > Plugins > Add New
+   - Search for "Elementor"
+   - Install and activate "Elementor Website Builder"
+
+2. Font Awesome Integration
+   - Install "Font Awesome Official" plugin
+   - Activate and configure in Settings > Font Awesome
+
+3. Visualizer: Tables and Charts
+   - Install "Visualizer: Tables and Charts"
+   - Activate the plugin
+
+### 2. Building the Home Page
+
+#### Hero Section
+1. Create new page named "Home"
+2. Edit with Elementor
+3. Add Section (2 columns)
+4. Left Column:
+   - Add Heading widget
+   - Set gradient color (Style tab)
+   - Add Text Editor widget
+   - Add Button widget
+5. Right Column:
+   - Add Image widget
+   - Set animation (Advanced tab)
+
+#### Analytics Tools Section
+1. Add new section (3 columns)
+2. For each column:
+   - Add Icon Box widget
+   - Set icon from Font Awesome
+   - Add heading and description
+   - Style with theme colors

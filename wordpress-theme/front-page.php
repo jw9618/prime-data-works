@@ -6,12 +6,21 @@
 get_header();
 ?>
 
+<!-- Debug output -->
+<!-- Template: front-page.php -->
+
 <main class="site-main">
-    <?php get_template_part('template-parts/home/hero'); ?>
+    <?php 
+    // Debug output
+    echo '<!-- Including hero.php -->';
+    get_template_part('template-parts/home/hero');
 
-    <?php get_template_part('template-parts/home/special-offer'); ?>
+    echo '<!-- Including special-offer.php -->';
+    get_template_part('template-parts/home/special-offer');
 
-    <?php get_template_part('template-parts/home/benefits'); ?>
+    echo '<!-- Including benefits.php -->';
+    get_template_part('template-parts/home/benefits');
+    ?>
 
     <section class="cta bg-primary-light">
         <div class="container">

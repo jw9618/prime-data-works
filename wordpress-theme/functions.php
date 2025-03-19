@@ -11,6 +11,7 @@ function prime_data_works_setup() {
     // Register navigation menus
     register_nav_menus(array(
         'primary' => __('Primary Menu', 'prime-data-works'),
+        'footer' => __('Footer Menu', 'prime-data-works'),
     ));
 }
 add_action('after_setup_theme', 'prime_data_works_setup');
@@ -35,6 +36,23 @@ function prime_data_works_get_icon($icon_name) {
     $icon_class = 'lucide-' . strtolower($icon_name);
     return sprintf('<i class="lucide %s"></i>', esc_attr($icon_class));
 }
+
+// Debug function to show template information
+function prime_data_works_template_debug() {
+    if (is_super_admin()) {
+        global $template;
+        echo '<!-- Current template: ' . basename($template) . ' -->';
+        echo '<!-- Template directory: ' . get_template_directory() . ' -->';
+        echo '<!-- Theme directory: ' . get_stylesheet_directory() . ' -->';
+
+        // Debug ACF fields if they exist
+        if (function_exists('get_field')) {
+            echo '<!-- ACF Hero Title: ' . esc_html(get_field('hero_title')) . ' -->';
+            echo '<!-- ACF Special Offer Title: ' . esc_html(get_field('offer_title')) . ' -->';
+        }
+    }
+}
+add_action('wp_footer', 'prime_data_works_template_debug');
 
 // Custom post type for Case Studies
 function prime_data_works_case_studies() {
@@ -72,3 +90,5 @@ function prime_data_works_customize_register($wp_customize) {
     )));
 }
 add_action('customize_register', 'prime_data_works_customize_register');
+
+?>

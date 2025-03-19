@@ -1,4 +1,4 @@
-</main>
+</div><!-- .site-content -->
     <footer class="site-footer">
         <div class="section-container">
             <div class="footer-content">

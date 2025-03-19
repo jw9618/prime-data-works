@@ -15,7 +15,7 @@
                     <?php bloginfo('name'); ?>
                 </a>
             <?php endif; ?>
-            
+
             <nav class="main-navigation">
                 <?php
                 wp_nav_menu(array(
@@ -28,4 +28,10 @@
             </nav>
         </div>
     </header>
-    <main>
+    <div class="site-content" style="padding-top: 4rem;">
+        <main>
+        </main>
+    </div>
+    <?php wp_footer(); ?>
+</body>
+</html>

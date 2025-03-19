@@ -1,5 +1,13 @@
 <?php get_header(); ?>
 
+<!-- Debug output -->
+<!-- Template: index.php -->
+<?php
+echo '<!-- Current template file: ' . get_page_template() . ' -->';
+echo '<!-- Is front page: ' . is_front_page() . ' -->';
+echo '<!-- Page ID: ' . get_the_ID() . ' -->';
+?>
+
 <div class="hero">
     <div class="hero-container">
         <div class="hero-content">

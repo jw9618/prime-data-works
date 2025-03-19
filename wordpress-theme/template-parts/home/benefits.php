@@ -13,7 +13,12 @@
                     ?>
                     <div class="benefit-card">
                         <div class="benefit-icon">
-                            <?php echo wp_get_svg_icon(get_sub_field('icon')); ?>
+                            <?php 
+                            $icon = get_sub_field('icon');
+                            if ($icon) {
+                                echo prime_data_works_get_icon($icon);
+                            }
+                            ?>
                         </div>
                         <h3 class="benefit-title"><?php echo esc_html(get_sub_field('title')); ?></h3>
                         <p class="benefit-description"><?php echo esc_html(get_sub_field('description')); ?></p>

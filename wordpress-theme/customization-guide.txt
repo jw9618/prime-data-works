@@ -1,0 +1,129 @@
+# Theme Customization Guide for Prime Data Works
+
+## Color Scheme Implementation
+
+### Primary Colors
+1. Access Global Colors in Elementor:
+   - Go to Elementor > Site Settings
+   - Navigate to Global Colors
+   - Set primary: #0f172a
+   - Set secondary: #2563eb
+   - Set accent: #3b82f6
+
+### Typography Settings
+1. Configure Global Fonts:
+   - Headings: Inter (700)
+   - Body: Inter (400)
+   - Import via Google Fonts
+
+### Component Styling
+
+#### Gradient Text Effects
+1. For headings requiring gradient:
+   - Select heading widget
+   - Go to Style tab
+   - Enable Background Layer
+   - Choose Gradient
+   - Set colors: #0f172a to #2563eb
+   - Set Type to Linear
+   - Enable Background Clip: Text
+
+#### Card Layouts
+1. Style settings for cards:
+   - Background: White
+   - Border Radius: 8px
+   - Box Shadow: 0px 1px 3px rgba(0,0,0,0.1)
+   - Padding: 24px
+   - Hover animation: Slight lift
+
+#### Button Styles
+1. Primary Button:
+   - Background: Primary color
+   - Text: White
+   - Border Radius: 6px
+   - Padding: 12px 24px
+   - Hover: Slight opacity change
+
+2. Secondary Button:
+   - Border: 1px solid #e5e7eb
+   - Text: Primary color
+   - Background: Transparent
+   - Same radius and padding
+
+### Section Layouts
+
+#### Hero Section
+1. Container settings:
+   - Max Width: 1200px
+   - Height: Min 80vh
+   - Padding: 96px 16px
+   - Background: White
+
+#### Grid Layouts
+1. Three-column grid:
+   - Gap: 32px
+   - Padding: 64px 16px
+   - Responsive breakpoints:
+     • Desktop: 3 columns
+     • Tablet: 2 columns
+     • Mobile: 1 column
+
+#### Chart Containers
+1. Style settings:
+   - Background: White
+   - Padding: 24px
+   - Border Radius: 8px
+   - Shadow: Light
+   - Margin: 16px 0
+
+### Responsive Design
+
+#### Mobile Adjustments
+1. Text sizes:
+   - H1: 36px → 28px
+   - H2: 30px → 24px
+   - H3: 24px → 20px
+   - Body: 16px → 14px
+
+2. Spacing:
+   - Section padding: 64px → 32px
+   - Column gap: 32px → 16px
+   - Card padding: 24px → 16px
+
+#### Tablet Adjustments
+1. Layout changes:
+   - 3 columns → 2 columns
+   - Side margins: 32px
+   - Stack certain columns
+
+### Animation Settings
+
+#### Scroll Effects
+1. Configure animations:
+   - Fade in: 0.5s
+   - Slide up: 0.3s
+   - Scale: 0.2s
+   - Timing: On viewport entry
+
+#### Interactive Elements
+1. Hover states:
+   - Cards: Scale 1.02
+   - Buttons: Opacity 0.9
+   - Links: Color shift
+
+### Chart Customization
+
+#### Visualizer Charts
+1. Style settings:
+   - Font: Inter
+   - Colors: Theme palette
+   - Grid: Light gray
+   - Labels: Muted text
+   - Responsive: True
+
+#### Container Styling
+1. Chart wrapper:
+   - Padding: 24px
+   - Background: White
+   - Shadow: Subtle
+   - Border radius: 8px
